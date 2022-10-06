@@ -4,18 +4,71 @@
         <title>Main Introduce</title>
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <link rel="icon" href="favicon.png">
     </head>
+
     <body>
         <header>
+        <!--bgm 버튼-->
+        <audio id="audioContainer">
+            <source id="audioSource" src="https://image-comic.pstatic.net/bgsound/mobile/570503_413_1655900161053.mp3"/>   
+            Your browser does not support the audio format.
+        </audio>
+        <input id="playingA" style="width: 48px;" type="button" value="♬ ON" onclick="
+            const audioContainer = document.querySelector('#audioContainer');
+
+            if(document.querySelector('#playingA').value === '♬ ON'){
+              document.querySelector('#playingA').value = 'OFF';
+              audioContainer.volume = 0.5;  // 볼륨은 0.5
+              audioContainer.loop = true;   // 음악이 끝나면 처음부터 반복하겠다
+              audioContainer.play();        // id=audioContainer 인 audio태그을 재생하라
+              audioContainer.currentTime = 222; // 음원 재생시간 중 222초 후부터 시작
+            
+            }else{
+              document.querySelector('#playingA').value = '♬ ON';
+              audioContainer.pause();       // 재생중지
+            }
+        ">
+        <!--다크&라이트 버튼-->
+            <input id="darkButton" type="button" value="Dark" onclick="
+            if(document.querySelector('#darkButton').value === 'Dark' ){
+                document.querySelector('body').style.backgroundColor = 'black';
+                document.querySelector('body').style.color = 'white';
+                document.querySelector('header').style.backgroundColor = 'black';
+                document.querySelector('header').style.color = 'white';
+                document.querySelector('#li-01').style.color = 'white';
+                document.querySelector('#li-02').style.color = 'white';
+                document.querySelector('#li-03').style.color = 'white';
+                document.querySelector('#section-hobby').style.color = 'white';
+                document.querySelector('.main-menu').style.borderColor = 'rgb(0, 100, 50)';
+                document.querySelector('#darkButton').value = 'Light';
+                document.querySelector('.container2').style.backgroundColor = 'rgb(85, 0, 108)';      
+
+            }else{
+                document.querySelector('header').style.backgroundColor = 'white';
+                document.querySelector('body').style.backgroundColor = 'white';
+                document.querySelector('body').style.color = 'black';
+                document.querySelector('header').style.color = 'black';
+                document.querySelector('#li-01').style.color = 'black';
+                document.querySelector('#li-02').style.color = 'black';
+                document.querySelector('#li-03').style.color = 'black';
+                document.querySelector('.main-menu').style.borderColor = 'brown';
+                document.querySelector('#darkButton').value = 'Dark';
+                document.querySelector('.container2').style.backgroundColor = 'rgb(231, 236, 143)';
+                document.querySelector('#section-hobby').style.color = 'black';
+            }
+        ">
             <h1>Chuljin's Webpage</h1>
             <nav class="main-menu-container">
                 <ul class="main-menu">
-                    <li><a id="li-01" href="index.html" style="color:red;font-size: x-large;"><strong>Main</strong></a></li>
-                    <li><a id="li-02" href="hobby.html">Hobby</a></li>
-                    <li><a id="li-03" href="link.html">Social link</a></li>
+                    <li><a id="li-01" href="#"><strong>Main</strong></a></li>
+                    <li><a id="li-02" href="#section-hobby"><strong>Hobby</strong></a></li>
+                    <li><a id="li-03" href="#section-link"><strong>Social link</strong></a></li>
                 </ul>
             </nav>
         </header>
+        
         <div class="theme-switcher-menu">
             <button aria-haspopup="menu" type="button" class="button action has-icon theme-switcher-menu small">
                 <span class="button-wrap">
@@ -45,7 +98,84 @@
                             <li>이런 여러가지 궁금증을 해소하고 싶었고 이참에 백엔드 개발자를 도전합니다</li>
                     </ul>
                 </p>
-            
         </div>
+        <div id="section-hobby">
+                <br/>
+                <h2>What do you do for fun?</h2>
+                <span>My favorite pastime is </span>
+                <!--toggle background Image 버튼-->
+                <input id="toggleH" type="button" value="__________." style="font-size: 20px; display: inline;" onclick="backgroundBtn()">
+
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                <br/><br/><br/><br/><br/><br/><br/><br/>
+                
+                <script>
+                    function backgroundBtn(){
+                        if(document.querySelector('#toggleH').value === '__________.'){
+                            document.querySelector('#toggleH').value = 'riding a bike.';
+                            document.querySelector('#section-hobby').style.backgroundImage = "url('img-bike.jpg')";
+                            document.querySelector('#section-hobby').style.backgroundSize = 'cover';
+                            document.querySelector('#section-hobby').style.color = 'white';
+                            // '취미: ___' 버튼을 클릭 -> 
+                        }else if(document.querySelector('#toggleH').value === 'riding a bike.'){
+                            document.querySelector('#toggleH').value = 'reading books.'
+                            document.querySelector('#section-hobby').style.backgroundImage = "url('img-book.jpg')";
+                            document.querySelector('#section-hobby').style.backgroundSize = 'cover';
+                            document.querySelector('#section-hobby').style.color = 'white';
+                            // '취미: 자전거타기' 버튼을 클릭 ->
+                        }else if(document.querySelector('#toggleH').value === 'reading books.'){
+                            document.querySelector('#toggleH').value = 'just walking.'
+                            document.querySelector('#section-hobby').style.backgroundImage = "url('img-walk.jpg')";
+                            document.querySelector('#section-hobby').style.backgroundSize = 'cover';
+                            document.querySelector('#section-hobby').style.color = 'white';   
+                            // '취미: 책읽기' 버튼을 클릭 ->
+                        }else if((document.querySelector('#darkButton').value === 'Light')&&(document.querySelector('#toggleH').value === 'just walking.')){
+                            document.querySelector('#toggleH').value = '__________.';
+                            document.querySelector('#section-hobby').style.backgroundImage = "";
+                            document.querySelector('#section-hobby').style.color = 'white';
+                            // 다크모드이고 '취미: 걷기' 버튼 클릭 -> 글자 흰색, 배경사진 없음, 취미: ___ 
+                        }else{
+                            document.querySelector('#toggleH').value = '__________.'
+                            document.querySelector('#section-hobby').style.backgroundImage = "";
+                            document.querySelector('#section-hobby').style.color = 'black';
+                            // 그외: '취미: ___'  글자색 검정, 배경사진 없음
+                        }
+                    }
+                </script>
+        </div>
+              
+        <div id="section-link"></div>
+            <div class="container2">
+                <div>
+                    <h2>Github</h2>
+                        <a href="https://github.com/Gyelanjjim" target="_blank">
+                            <img class="imgLink" src="img-Github.jpg" alt="Github Link">
+                        </a>
+                </div>
+                <div>
+                    <h2>Velog</h2>
+                        <a href="http://velog.io/@scroll0908" target="_blank">
+                            <img class="imgLink" src="img-Velog.jpg" alt="Velog Link">
+                        </a>
+                </div>
+                <div>
+                    <h2>Strava</h2>
+                        <a href="https://www.strava.com/athletes/18378347" target="_blank">
+                            <img class="imgLink" src="img-Strava.jpg" alt="Strava Link">
+                        </a>
+                </div>
+                <div>
+                    <h2>Mail</h2>
+                        <a href="mailto:songcj92@gmail.com" target="_blank">
+                            <img class="imgLink" src="img-Mail.jpg" alt="Mail Link">   
+                        </a>
+                </div>
+                <br/><br/><br/>
+            </div>
+        <footer>
+            ~The End~
+        </footer>
+
     </body>
 </html>
