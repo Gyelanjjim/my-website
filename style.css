@@ -11,6 +11,23 @@ h2{
     font-size: 20px;
     text-align: center;
 }
+/*#section-hobby{
+    margin-top: 155.88px;
+}*/
+#section-hobby span{
+    margin-left: 27px;
+    font-size: 30px;
+}
+#section-hobby input{
+    font-size: 32px;
+    margin-right: 968px;
+    text-align: left;
+}
+#section-hobby h2{
+    text-align: left;
+    font-size: 50px; 
+    margin: 10px;
+}
 nav{
     display: block;
 }
@@ -19,12 +36,22 @@ h1{
     padding: 10px;
 }
 header{
+    top: 0;
     position: fixed;
     right: 0;
     left: 0;
     background-color: white;
 }
 body{
+    margin: 0;
+}
+footer{
+    height: 100px;
+    line-height: 100px;
+    background-color: rgb(65, 63, 63);
+    font-size: xx-large;
+    color: white;
+    text-align: center;
     margin: 0;
 }
 li{
@@ -55,13 +82,15 @@ li{
     justify-content: space-evenly;
     display: flex;
     border-top: solid 3px brown;
-    margin-top: 0;
     border-bottom: solid 3px brown;
     margin-bottom: 0;
     padding-top: 10px;
     padding-bottom: 10px;
+
+    font-family: -apple-system, BlinkMacSystemFont, AppleSDGothicNeo-Regular;
 }
 .para{
+    position: 155.88px;
     background-image: url('img-think.jpg');
     background-attachment: fixed;
     background-size: cover;
@@ -79,16 +108,21 @@ li{
     width: 200px;
     height: 200px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto; 
 }
 .container {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 800px;
+    
+}
+.container2 h2{
+    line-height: 40px;
 }
 .container2 {
     display: grid;
-    background: rgb(231, 236, 143);
+    background: rgb(231, 236, 143); 
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
