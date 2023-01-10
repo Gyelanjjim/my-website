@@ -10,3 +10,8 @@
 ## 링크🔗
 - [나의 웹사이트](https://gyelanjjim.github.io/my-website/) 
 - [기술블로그 기능 소개](https://velog.io/@scroll0908/자기소개페이지-기능-소개)
+
+## 기술스택
+- HTML
+- CSS
+- JavaScript
