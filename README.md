@@ -1,5 +1,4 @@
 # my-website
->wecode 내 웹페이지 만들기
 
 ## 목적📈
 - 사전스터디 기간 내 학습한 HTML, CSS, JavaScript 를 활용하여 나를 소개하는 웹사이트 만들기
